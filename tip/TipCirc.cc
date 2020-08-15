@@ -92,12 +92,12 @@ namespace Tip {
     }
 
 
-    void TipCirc::bmc(uint32_t begin_cycle, uint32_t stop_cycle, BmcVersion bver){
-        if (bver == bmc_Basic)
-            basicBmc(*this, begin_cycle, stop_cycle);
-        else if (bver == bmc_Simp)
+    void TipCirc::bmc(uint32_t begin_cycle, uint32_t stop_cycle, BmcVersion bver, bool print_bound){
+        if (bver == bmc_Basic) {
+            basicBmc(*this, begin_cycle, stop_cycle, true, print_bound);
+        } else if (bver == bmc_Simp) {
             simpBmc (*this, begin_cycle, stop_cycle);
-        else{
+        } else{
             assert(bver == bmc_Simp2);
             simpBmc2(*this, begin_cycle, stop_cycle);
         }

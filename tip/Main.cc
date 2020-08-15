@@ -68,6 +68,7 @@ int main(int argc, char** argv)
     StringOption alg  ("MAIN", "alg", "Main model checking algorithm to use.", "rip");
     IntOption    rip_bmc("RIP", "rip-bmc", "Bmc-mode to use in Rip-engine (-1=auto, 0=none, 1=safe, 2=live).", 0);
     StringOption aiger("MAIN", "aiger", "Temporary AIGER writing.", NULL);
+    BoolOption   opt_print_bound("MAIN", "pb", "Print solved bound for deep bound track", false);
 
     parseOptions(argc, argv, true);
 
@@ -150,7 +151,7 @@ int main(int argc, char** argv)
         exit(0); }
 
     if (strcmp(alg, "bmc") == 0)
-        tc.bmc(0,depth, (TipCirc::BmcVersion)(int)bver);
+        tc.bmc(0,depth, (TipCirc::BmcVersion)(int)bver, opt_print_bound);
     else if (strcmp(alg, "rip") == 0)
         tc.trip(rbmc);
     else if (strcmp(alg, "live") == 0)

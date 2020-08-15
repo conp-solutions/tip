@@ -79,7 +79,7 @@ public:
 //=================================================================================================
 // Different BMC implementations:
 
-void basicBmc(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle, bool check_live = true);
+void basicBmc(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle, bool check_live = true, bool print_bound = false);
 void simpBmc (TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle);
 void simpBmc2(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle);
 

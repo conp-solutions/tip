@@ -279,7 +279,7 @@ int      BasicBmc::depth (){ return cycle; }
 // Implementation of Basic BMC:
 //
 
-void basicBmc(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle, bool check_live)
+void basicBmc(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle, bool check_live, bool print_bound)
 {
     if (begin_cycle >= stop_cycle)
         return;
@@ -296,6 +296,7 @@ void basicBmc(TipCirc& tip, uint32_t begin_cycle, uint32_t stop_cycle, bool chec
         bmc.unrollCycle();
         bmc.printStats ();
         bmc.decideCycle();
+        if(print_bound && i > 0) printf("u %u\n", i);
     }
     bmc.printStats(true);
 }

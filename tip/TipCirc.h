@@ -197,7 +197,7 @@ public:
     void writeResultSafe   (SafeProp p);
     void writeResultLive   (LiveProp p);
 
-    void bmc               (uint32_t begin_cycle, uint32_t stop_cycle, BmcVersion bver = bmc_Basic);
+    void bmc               (uint32_t begin_cycle, uint32_t stop_cycle, BmcVersion bver = bmc_Basic, bool print_bound = false);
     void sce               (bool use_minimize_alg = true, bool only_coi = false);
     void trip              (RipBmcMode bmc_mode = ripbmc_None);
     void selSafe           (SafeProp p);
